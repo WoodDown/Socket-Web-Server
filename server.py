@@ -45,8 +45,11 @@ def process_request(connection):
         r = request_from_connection(connection)
         # log('request log:\n <{}>'.format(r))
 
-        request = Request(r)
-        response = response_for_path(request)
+        if r == '':
+            response = b''
+        else:
+            request = Request(r)
+            response = response_for_path(request)
         # log("response log:\n <{}>".format(response))
 
         connection.sendall(response)
