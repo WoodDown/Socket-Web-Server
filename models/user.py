@@ -1,10 +1,11 @@
 from models.base_model import SQLModel
+from models.base_model import SQLModelPlus
 from models.user_role import UserRole
 
 import hashlib
 
 
-class User(SQLModel):
+class User(SQLModelPlus):
     sql_create = '''
     CREATE TABLE `user` (
         `id`        INT NOT NULL AUTO_INCREMENT,
