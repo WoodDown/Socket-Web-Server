@@ -19,7 +19,7 @@ def initialized_environment():
     return e
 
 
-class GuaTemplate:
+class MyTemplate:
     e = initialized_environment()
 
     @classmethod
@@ -53,7 +53,7 @@ def error(request, code=404):
 
 
 def formatted_header(headers, code=200):
-    header = 'HTTP/1.1 {} OK GUA\r\n'.format(code)
+    header = 'HTTP/1.1 {} OK OOKK\r\n'.format(code)
     header += ''.join([
         '{}: {}\r\n'.format(k, v) for k, v in headers.items()
     ])
@@ -75,7 +75,7 @@ def redirect(url, session_id=None):
 
 
 def html_response(filename, **kwargs):
-    body = GuaTemplate.render(filename, **kwargs)
+    body = MyTemplate.render(filename, **kwargs)
 
     headers = {
         'Content-Type': 'text/html',
